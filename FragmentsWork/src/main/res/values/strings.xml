@@ -3,6 +3,7 @@
 
     <string name="app_name">FragmentsWork</string>
     <string name="action_settings">Settings</string>
+    <string name="logo_placeholder">LOGO</string>
 
     <string name="greeting_text">
         Hello! This application will help you

@@ -2,14 +2,32 @@ package com.example.fragmentswork;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
+
+    FragmentTransaction fTrans;
+    GreetingFragment fGreeting;
+    LoginFragment fLogin;
+    SignupFragment fSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fGreeting = new GreetingFragment();
+        fLogin = new LoginFragment();
+        fSignup = new SignupFragment();
+
+        fTrans = getSupportFragmentManager().beginTransaction();
+        fTrans.add(R.id.container, fGreeting);
+        fTrans.commit();
+
     }
 
 
@@ -19,5 +37,20 @@ public class MainActivity extends FragmentActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+
+
+    public void onClick(View view) {
+        fTrans = getSupportFragmentManager().beginTransaction();
+        switch ( view.getId() ) {
+            case R.id.btnLogin :
+                fTrans.replace(R.id.container, fLogin);
+                break;
+            case R.id.btnSignup :
+                fTrans.replace(R.id.container, fSignup);
+                break;
+        }
+
+        fTrans.addToBackStack(null);
+        fTrans.commit();
+    }
 }

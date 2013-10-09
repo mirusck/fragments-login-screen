@@ -9,22 +9,28 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/greeting_text"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/tvGreeting"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="7dip"
+        android:paddingLeft="4dip"
+        android:paddingRight="4dip"
+        android:paddingTop="7dip"
+        android:gravity="center_horizontal" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/greeting_login"
-        android:id="@+id/button"
-        android:layout_gravity="center" />
+        android:id="@+id/btnLogin"
+        android:layout_gravity="center"
+        android:onClick="onClick" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/greeting_signup"
-        android:id="@+id/button2"
+        android:id="@+id/btnSignup"
         android:layout_gravity="center"
-        android:width="@dimen/fragment_button_width" />
+        android:onClick="onClick" />
 
 </LinearLayout>
