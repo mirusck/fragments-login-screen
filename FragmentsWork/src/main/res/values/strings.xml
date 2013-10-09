@@ -20,4 +20,6 @@
     <string name="signup_email_hint">your real email</string>
     <string name="signup_password_hint">desirable password</string>
     <string name="signup_button">Sign up</string>
+
+    <string name="nothing_to_do">nothing to do here…</string>
 </resources>

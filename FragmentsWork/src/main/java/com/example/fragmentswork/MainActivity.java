@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
@@ -48,6 +47,12 @@ public class MainActivity extends FragmentActivity {
             case R.id.btnSignup :
                 fTrans.replace(R.id.container, fSignup);
                 break;
+            case R.id.btnLoginSubmit :
+            case R.id.btnSignupSubmit :
+            default :
+                fTrans.replace(R.id.container, fGreeting);
+                Toast toast = Toast.makeText(getApplicationContext(), R.string.nothing_to_do, Toast.LENGTH_LONG);
+                toast.show();
         }
 
         fTrans.addToBackStack(null);

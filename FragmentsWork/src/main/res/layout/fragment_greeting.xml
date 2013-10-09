@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/greeting_text"
-        android:id="@+id/tvGreeting"
+        android:id="@+id/btnSignupSubmit"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="7dip"
         android:paddingLeft="4dip"
