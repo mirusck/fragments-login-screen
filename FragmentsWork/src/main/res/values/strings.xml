@@ -3,6 +3,20 @@
 
     <string name="app_name">FragmentsWork</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
 
+    <string name="greeting_text">
+        Hello! This application will help you
+        resolve some strange problems in your life
+    </string>
+    <string name="greeting_login">Have an account? Login!</string>
+    <string name="greeting_signup">New here? Sign Up!</string>
+
+    <string name="login_email_hint">your email</string>
+    <string name="login_password_hint">your password</string>
+    <string name="login_button">Log in</string>
+
+    <string name="signup_name_hint">your name</string>
+    <string name="signup_email_hint">your real email</string>
+    <string name="signup_password_hint">desirable password</string>
+    <string name="signup_button">Sign up</string>
 </resources>
