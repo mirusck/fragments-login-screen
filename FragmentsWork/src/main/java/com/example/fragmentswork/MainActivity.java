@@ -39,20 +39,23 @@ public class MainActivity extends FragmentActivity {
 
 
     public void onClick(View view) {
+
         fTrans = getSupportFragmentManager().beginTransaction();
+
         switch ( view.getId() ) {
-            case R.id.btnLogin :
+            case R.id.btnLogin:
                 fTrans.replace(R.id.container, fLogin);
                 break;
-            case R.id.btnSignup :
+            case R.id.btnSignup:
                 fTrans.replace(R.id.container, fSignup);
                 break;
-            case R.id.btnLoginSubmit :
-            case R.id.btnSignupSubmit :
-//            default :
+            case R.id.btnLoginSubmit:
+            case R.id.btnSignupSubmit:
                 fTrans.replace(R.id.container, fGreeting);
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.nothing_to_do, Toast.LENGTH_SHORT);
                 toast.show();
+            default:
+                break;
         }
 
         fTrans.addToBackStack(null);
