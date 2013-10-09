@@ -51,7 +51,7 @@ public class MainActivity extends FragmentActivity {
             case R.id.btnSignupSubmit :
             default :
                 fTrans.replace(R.id.container, fGreeting);
-                Toast toast = Toast.makeText(getApplicationContext(), R.string.nothing_to_do, Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(), R.string.nothing_to_do, Toast.LENGTH_SHORT);
                 toast.show();
         }
 
