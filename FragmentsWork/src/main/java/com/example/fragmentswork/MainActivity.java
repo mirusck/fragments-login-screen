@@ -22,11 +22,11 @@ public class MainActivity extends FragmentActivity {
         fGreeting = new GreetingFragment();
         fLogin = new LoginFragment();
         fSignup = new SignupFragment();
-
-        fTrans = getSupportFragmentManager().beginTransaction();
-        fTrans.add(R.id.container, fGreeting);
-        fTrans.commit();
-
+        if ( savedInstanceState == null ) {
+            fTrans = getSupportFragmentManager().beginTransaction();
+            fTrans.add(R.id.container, fGreeting);
+            fTrans.commit();
+        }
     }
 
 
