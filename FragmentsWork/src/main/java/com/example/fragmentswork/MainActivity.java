@@ -18,12 +18,13 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
-    FragmentTransaction fTrans;
-    GreetingFragment fGreeting;
-    LoginFragment fLogin;
-    SignupFragment fSignup;
+    private FragmentTransaction fTrans;
+    private GreetingFragment fGreeting;
+    private LoginFragment fLogin;
+    private SignupFragment fSignup;
+    private ListView listView;
 
-    private String[] mPlanetTitles;
+    private String[] mDrawerTitles;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
 
@@ -44,15 +45,17 @@ public class MainActivity extends ActionBarActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 //        actionBar.setHomeButtonEnabled(true);
 
-        mPlanetTitles = getResources().getStringArray(R.array.drawer_items);
+        mDrawerTitles = getResources().getStringArray(R.array.drawer_items);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
         // Set the adapter for the list view
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.drawer_list_item, mPlanetTitles));
+                R.layout.drawer_list_item, mDrawerTitles));
         // Set the list's click listener
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+
     }
 
 
@@ -137,21 +140,6 @@ public class MainActivity extends ActionBarActivity {
         }
         fTrans.replace(R.id.container, fragment);
         fTrans.commit();
-        // Create a new fragment and specify the planet to show based on position
-        /*Fragment fragment = new PlanetFragment();
-        Bundle args = new Bundle();
-        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-        fragment.setArguments(args);
-
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.content_frame, fragment)
-                .commit();
-
-        // Highlight the selected item, update the title, and close the drawer
-        mDrawerList.setItemChecked(position, true);
-        setTitle(mPlanetTitles[position]);*/
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 

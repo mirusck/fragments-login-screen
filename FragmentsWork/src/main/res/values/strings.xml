@@ -36,4 +36,11 @@
 
     <string name="placeholder_list">The list should be here</string>
     <string name="placeholder_animations">Animations would be there</string>
+
+    <string-array name="list_titles">
+        <item>Lorem ipsum</item>
+        <item>At vero</item>
+        <item>Duis autem</item>
+        <item>Sanctus sea</item>
+    </string-array>
 </resources>
