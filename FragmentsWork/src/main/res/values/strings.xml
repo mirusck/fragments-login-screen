@@ -29,11 +29,8 @@
     <string name="item3">Delete</string>
 
     <string-array
-        name="planets_array">
-        <item>planet1</item>
-        <item>planet2</item>
-        <item>planet3</item>
-        <item>planet4</item>
-        <item>planet5</item>
+        name="drawer_items">
+        <item>Animations</item>
+        <item>List</item>
     </string-array>
 </resources>
