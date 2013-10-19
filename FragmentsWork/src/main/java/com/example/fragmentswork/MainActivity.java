@@ -1,10 +1,12 @@
 package com.example.fragmentswork;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -58,11 +60,35 @@ public class MainActivity extends ActionBarActivity {
                 fTrans.replace(R.id.container, fGreeting);
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.nothing_to_do, Toast.LENGTH_SHORT);
                 toast.show();
+                break;
             default:
                 break;
         }
 
         fTrans.addToBackStack(null);
         fTrans.commit();
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                // smth should be here
+                Toast toast = Toast.makeText(getApplicationContext(), "add", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            case R.id.action_edit:
+                // smth should be here
+                return true;
+            case android.R.id.home:
+                fTrans = getSupportFragmentManager().beginTransaction();
+                fTrans.replace(R.id.container, fGreeting);
+                fTrans.commit();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

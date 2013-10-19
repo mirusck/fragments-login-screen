@@ -1,19 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fragmentswork="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/item2"
+        android:id="@+id/action_add"
         android:icon="@android:drawable/ic_menu_add"
         fragmentswork:showAsAction="always"
         android:title="@string/item1">
     </item>
     <item
-        android:id="@+id/item3"
+        android:id="@+id/action_edit"
         android:icon="@android:drawable/ic_menu_edit"
         fragmentswork:showAsAction="ifRoom|withText"
         android:title="@string/item2">
     </item>
     <item
-        android:id="@+id/item4"
+        android:id="@+id/action_delete"
         android:icon="@android:drawable/ic_menu_delete"
         fragmentswork:showAsAction="never"
         android:title="@string/item3">
