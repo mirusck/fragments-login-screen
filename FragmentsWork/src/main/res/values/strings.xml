@@ -33,4 +33,7 @@
         <item>Animations</item>
         <item>List</item>
     </string-array>
+
+    <string name="placeholder_list">The list should be here</string>
+    <string name="placeholder_animations">Animations would be there</string>
 </resources>

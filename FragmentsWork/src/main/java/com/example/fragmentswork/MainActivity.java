@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -51,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mPlanetTitles));
         // Set the list's click listener
-//        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
     }
 
 
@@ -121,10 +122,21 @@ public class MainActivity extends ActionBarActivity {
 
     /** Swaps fragments in the main content view */
     private void selectItem(int position) {
-//        Fragment fragment = new Fragment();
-//        fTrans = getSupportFragmentManager().beginTransaction();
-//        fTrans.add(R.id.container, fGreeting);
-//        fTrans.commit();
+        Fragment fragment;
+        fTrans = getSupportFragmentManager().beginTransaction();
+        switch (position) {
+            case 0:
+                fragment = new AnimationFragment();
+                break;
+            case 1:
+                fragment = new CustomListFragment();
+                break;
+            default:
+                fragment = fGreeting;
+                break;
+        }
+        fTrans.replace(R.id.container, fragment);
+        fTrans.commit();
         // Create a new fragment and specify the planet to show based on position
         /*Fragment fragment = new PlanetFragment();
         Bundle args = new Bundle();
