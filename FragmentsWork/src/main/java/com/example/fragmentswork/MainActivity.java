@@ -121,6 +121,10 @@ public class MainActivity extends ActionBarActivity {
 
     /** Swaps fragments in the main content view */
     private void selectItem(int position) {
+//        Fragment fragment = new Fragment();
+//        fTrans = getSupportFragmentManager().beginTransaction();
+//        fTrans.add(R.id.container, fGreeting);
+//        fTrans.commit();
         // Create a new fragment and specify the planet to show based on position
         /*Fragment fragment = new PlanetFragment();
         Bundle args = new Bundle();
