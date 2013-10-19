@@ -1,13 +1,14 @@
 package com.example.fragmentswork;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends ActionBarActivity {
 
     FragmentTransaction fTrans;
     GreetingFragment fGreeting;
@@ -27,6 +28,9 @@ public class MainActivity extends FragmentActivity {
             fTrans.add(R.id.container, fGreeting);
             fTrans.commit();
         }
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
     }
 
 

@@ -24,8 +24,7 @@
     <string name="nothing_to_do">nothing to do here…</string>
 
 
-    <string name="item1">item1</string>
-    <string name="item2">item2</string>
-    <string name="item3">item3</string>
-    <string name="item4">item4</string>
+    <string name="item1">Add</string>
+    <string name="item2">Edit</string>
+    <string name="item3">Delete</string>
 </resources>

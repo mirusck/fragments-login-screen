@@ -1,29 +1,25 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fragmentswork="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/item1"
-        android:showAsAction="always"
+        android:id="@+id/item2"
+        android:icon="@android:drawable/ic_menu_add"
+        fragmentswork:showAsAction="always"
         android:title="@string/item1">
     </item>
     <item
-        android:id="@+id/item2"
-        android:icon="@android:drawable/ic_menu_call"
-        android:showAsAction="ifRoom"
+        android:id="@+id/item3"
+        android:icon="@android:drawable/ic_menu_edit"
+        fragmentswork:showAsAction="ifRoom|withText"
         android:title="@string/item2">
     </item>
     <item
-        android:id="@+id/item3"
-        android:icon="@android:drawable/ic_menu_info_details"
-        android:showAsAction="ifRoom|withText"
-        android:title="@string/item3">
-    </item>
-    <item
         android:id="@+id/item4"
-        android:icon="@android:drawable/ic_menu_view"
-        android:showAsAction="never"
-        android:title="@string/item4">
+        android:icon="@android:drawable/ic_menu_delete"
+        fragmentswork:showAsAction="never"
+        android:title="@string/item3">
     </item>
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
-        android:showAsAction="never" />
+        fragmentswork:showAsAction="never" />
 </menu>
