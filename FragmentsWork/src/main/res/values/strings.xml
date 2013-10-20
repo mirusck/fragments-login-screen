@@ -30,8 +30,12 @@
 
     <string-array
         name="drawer_items">
-        <item>Animations</item>
         <item>List</item>
+        <item>Animation (fade in)</item>
+        <item>Animation (rotate)</item>
+        <item>Animation (bounce)</item>
+        <item>Animation (slide down)</item>
+
     </string-array>
 
     <string name="placeholder_list">The list should be here</string>

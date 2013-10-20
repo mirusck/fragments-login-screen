@@ -1,32 +1,39 @@
 package com.example.fragmentswork;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
-    private FragmentTransaction fTrans;
-    private GreetingFragment fGreeting;
-    private LoginFragment fLogin;
-    private SignupFragment fSignup;
-    private ListView listView;
+    FragmentTransaction fTrans;
+    GreetingFragment fGreeting;
+    LoginFragment fLogin;
+    SignupFragment fSignup;
+    ListView listView;
 
-    private String[] mDrawerTitles;
-    private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
+    String[] mDrawerTitles;
+    DrawerLayout mDrawerLayout;
+    ListView mDrawerList;
+
+    Animation animFadeIn;
+    Animation animRotate;
+    Animation animBounce;
+    Animation animSlideDown;
+    TextView tvLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,7 @@ public class MainActivity extends ActionBarActivity {
         fGreeting = new GreetingFragment();
         fLogin = new LoginFragment();
         fSignup = new SignupFragment();
+        tvLogo = (TextView) findViewById(R.id.tvLogo);
         if ( savedInstanceState == null ) {
             fTrans = getSupportFragmentManager().beginTransaction();
             fTrans.add(R.id.container, fGreeting);
@@ -55,6 +63,11 @@ public class MainActivity extends ActionBarActivity {
         // Set the list's click listener
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
+        // load anim
+        animFadeIn = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.fade_in);
+        animRotate = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.rotate);
+        animBounce = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.bounce);
+        animSlideDown = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.slide_down);
 
     }
 
@@ -125,21 +138,28 @@ public class MainActivity extends ActionBarActivity {
 
     /** Swaps fragments in the main content view */
     private void selectItem(int position) {
-        Fragment fragment;
-        fTrans = getSupportFragmentManager().beginTransaction();
         switch (position) {
             case 0:
-                fragment = new AnimationFragment();
+                fTrans = getSupportFragmentManager().beginTransaction();
+                Fragment fragment = new CustomListFragment();
+                fTrans.replace(R.id.container, fragment);
+                fTrans.commit();
                 break;
             case 1:
-                fragment = new CustomListFragment();
+                tvLogo.startAnimation(animFadeIn);
+                break;
+            case 2:
+                tvLogo.startAnimation(animRotate);
+                break;
+            case 3:
+                tvLogo.startAnimation(animBounce);
+                break;
+            case 4:
+                tvLogo.startAnimation(animSlideDown);
                 break;
             default:
-                fragment = fGreeting;
                 break;
         }
-        fTrans.replace(R.id.container, fragment);
-        fTrans.commit();
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
