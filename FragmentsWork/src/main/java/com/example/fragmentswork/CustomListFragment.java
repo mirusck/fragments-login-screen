@@ -20,3 +20,4 @@ public class CustomListFragment extends Fragment {
         return view;
     }
 }
+//@todo: min height 48dip of each list item

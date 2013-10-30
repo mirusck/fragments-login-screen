@@ -12,7 +12,8 @@ public class GreetingFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_greeting, null);
+//        return inflater.inflate(R.layout.fragment_greeting, null); //null only for dialogs, because there are no parent elem
+        return inflater.inflate(R.layout.fragment_greeting, container, false); //@todo: replace others!
     }
     // other stuff to onActivityCreate !
 }

@@ -9,6 +9,6 @@ import android.view.ViewGroup;
 public class AnimationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_animation, null);
+        return inflater.inflate(R.layout.fragment_animation, container, false);
     }
 }

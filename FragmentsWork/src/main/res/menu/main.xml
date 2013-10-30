@@ -3,7 +3,7 @@
     <item
         android:id="@+id/action_add"
         android:icon="@android:drawable/ic_menu_add"
-        fragmentswork:showAsAction="always"
+        fragmentswork:showAsAction="ifRoom"
         android:title="@string/item1">
     </item>
     <item

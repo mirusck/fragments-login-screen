@@ -127,7 +127,7 @@ public class MainActivity extends ActionBarActivity {
                 break;
         }
 
-        fTrans.addToBackStack(null);
+        fTrans.addToBackStack(null); // we can pass there string key to fetch this activity later
         fTrans.commit();
     }
 
