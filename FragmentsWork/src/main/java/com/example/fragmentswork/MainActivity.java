@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
     MainFragment fMain;
     LoginFragment fLogin;
     SignupFragment fSignup;
-    ListView listView;
+    CustomListFragment fList;
 
     String[] mDrawerTitles;
     DrawerLayout mDrawerLayout;
@@ -45,6 +45,7 @@ public class MainActivity extends ActionBarActivity {
         fMain = new MainFragment();
         fLogin = new LoginFragment();
         fSignup = new SignupFragment();
+        fList = new CustomListFragment();
         tvLogo = (TextView) findViewById(R.id.tvLogo);
         if ( savedInstanceState == null ) {
             fTrans = getSupportFragmentManager().beginTransaction();
@@ -162,16 +163,16 @@ public class MainActivity extends ActionBarActivity {
         Fragment fragment;
         switch (position) {
             case 0:
-                fragment = new CustomListFragment();
+                fragment = fList;
                 break;
             case 1:
-                fragment = new LoginFragment();
+                fragment = fLogin;
                 break;
             case 2:
-                fragment = new SignupFragment();
+                fragment = fSignup;
                 break;
             default:
-                fragment = new MainFragment();
+                fragment = fMain;
                 break;
         }
         fTrans.replace(R.id.container, fragment);
