@@ -1,5 +1,7 @@
 package com.example.fragmentswork;
 
+import android.app.*;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -11,8 +13,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -23,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
 
     FragmentTransaction fTrans;
     GreetingFragment fGreeting;
+    MainFragment fMain;
     LoginFragment fLogin;
     SignupFragment fSignup;
     ListView listView;
@@ -32,10 +33,7 @@ public class MainActivity extends ActionBarActivity {
     ListView mDrawerList;
     ActionBarDrawerToggle mDrawerToggle;
 
-    Animation animFadeIn;
-    Animation animRotate;
-    Animation animBounce;
-    Animation animSlideDown;
+
     TextView tvLogo;
 
     @Override
@@ -44,12 +42,13 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         fGreeting = new GreetingFragment();
+        fMain = new MainFragment();
         fLogin = new LoginFragment();
         fSignup = new SignupFragment();
         tvLogo = (TextView) findViewById(R.id.tvLogo);
         if ( savedInstanceState == null ) {
             fTrans = getSupportFragmentManager().beginTransaction();
-            fTrans.add(R.id.container, fGreeting);
+            fTrans.add(R.id.container, fMain);
             fTrans.commit();
         }
 
@@ -76,12 +75,6 @@ public class MainActivity extends ActionBarActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-
-        // load anim
-        animFadeIn = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.fade_in);
-        animRotate = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.rotate);
-        animBounce = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.bounce);
-        animSlideDown = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.slide_down);
 
     }
 
@@ -129,6 +122,7 @@ public class MainActivity extends ActionBarActivity {
 
         fTrans.addToBackStack(null); // we can pass there string key to fetch this activity later
         fTrans.commit();
+
     }
 
 
@@ -170,18 +164,6 @@ public class MainActivity extends ActionBarActivity {
                 Fragment fragment = new CustomListFragment();
                 fTrans.replace(R.id.container, fragment);
                 fTrans.commit();
-                break;
-            case 1:
-                tvLogo.startAnimation(animFadeIn);
-                break;
-            case 2:
-                tvLogo.startAnimation(animRotate);
-                break;
-            case 3:
-                tvLogo.startAnimation(animBounce);
-                break;
-            case 4:
-                tvLogo.startAnimation(animSlideDown);
                 break;
             default:
                 break;
