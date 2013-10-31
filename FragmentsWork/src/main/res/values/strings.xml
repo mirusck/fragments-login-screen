@@ -35,11 +35,8 @@
     <string-array
         name="drawer_items">
         <item>List</item>
-        <item>Animation (fade in)</item>
-        <item>Animation (rotate)</item>
-        <item>Animation (bounce)</item>
-        <item>Animation (slide down)</item>
-
+        <item>Login</item>
+        <item>Register</item>
     </string-array>
 
     <string name="placeholder_list">The list should be here</string>

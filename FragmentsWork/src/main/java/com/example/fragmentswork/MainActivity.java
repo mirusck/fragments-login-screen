@@ -112,7 +112,7 @@ public class MainActivity extends ActionBarActivity {
                 break;
             case R.id.btnLoginSubmit:
             case R.id.btnSignupSubmit:
-                fTrans.replace(R.id.container, fGreeting);
+                fTrans.replace(R.id.container, fMain);
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.nothing_to_do, Toast.LENGTH_SHORT);
                 toast.show();
                 break;
@@ -158,16 +158,25 @@ public class MainActivity extends ActionBarActivity {
 
     /** Swaps fragments in the main content view */
     private void selectItem(int position) {
+        fTrans = getSupportFragmentManager().beginTransaction();
+        Fragment fragment;
         switch (position) {
             case 0:
-                fTrans = getSupportFragmentManager().beginTransaction();
-                Fragment fragment = new CustomListFragment();
-                fTrans.replace(R.id.container, fragment);
-                fTrans.commit();
+                fragment = new CustomListFragment();
+                break;
+            case 1:
+                fragment = new LoginFragment();
+                break;
+            case 2:
+                fragment = new SignupFragment();
                 break;
             default:
+                fragment = new MainFragment();
                 break;
         }
+        fTrans.replace(R.id.container, fragment);
+        fTrans.addToBackStack(null);
+        fTrans.commit();
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
