@@ -4,7 +4,7 @@
     <string name="app_name">FragmentsWork</string>
     <string name="action_settings">Settings</string>
     <string name="logo_placeholder">LOGO</string>
-    <string name="logo_hint">Touch to start an animation</string>
+    <string name="logo_hint">Touch logo to start an animation</string>
 
     <string name="drawer_open">Open drawer</string>
     <string name="drawer_close">Close drawer</string>
@@ -34,7 +34,7 @@
 
     <string-array
         name="drawer_items">
-        <item>List</item>
+        <item>Animations</item>
         <item>Login</item>
         <item>Register</item>
     </string-array>

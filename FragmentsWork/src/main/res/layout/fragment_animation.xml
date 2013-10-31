@@ -4,12 +4,25 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/logo_placeholder"
+        android:id="@+id/tvLogo"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:onClick="onClick"
+        android:hint="@string/logo_hint"
+        android:textSize="74sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/placeholder_animations"
+        android:text="@string/logo_hint"
         android:id="@+id/textView"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:textColor="#002151" />
+
 </LinearLayout>

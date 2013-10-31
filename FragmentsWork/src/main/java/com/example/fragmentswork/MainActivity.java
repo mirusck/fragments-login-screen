@@ -1,7 +1,5 @@
 package com.example.fragmentswork;
 
-import android.app.*;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -24,15 +22,14 @@ public class MainActivity extends ActionBarActivity {
     FragmentTransaction fTrans;
     GreetingFragment fGreeting;
     MainFragment fMain;
+    AnimationFragment fAnimation;
     LoginFragment fLogin;
     SignupFragment fSignup;
-    CustomListFragment fList;
 
     String[] mDrawerTitles;
     DrawerLayout mDrawerLayout;
     ListView mDrawerList;
     ActionBarDrawerToggle mDrawerToggle;
-
 
     TextView tvLogo;
 
@@ -45,10 +42,13 @@ public class MainActivity extends ActionBarActivity {
         fMain = new MainFragment();
         fLogin = new LoginFragment();
         fSignup = new SignupFragment();
-        fList = new CustomListFragment();
+        fAnimation = new AnimationFragment();
         tvLogo = (TextView) findViewById(R.id.tvLogo);
-        if ( savedInstanceState == null ) {
+
+        // check if container exists and there are no saved state
+        if ( (findViewById(R.id.container) != null) && (savedInstanceState == null) ) {
             fTrans = getSupportFragmentManager().beginTransaction();
+            fMain.setArguments(getIntent().getExtras());
             fTrans.add(R.id.container, fMain);
             fTrans.commit();
         }
@@ -141,7 +141,7 @@ public class MainActivity extends ActionBarActivity {
                 return true;
             case android.R.id.home:
                 fTrans = getSupportFragmentManager().beginTransaction();
-                fTrans.replace(R.id.container, fGreeting);
+                fTrans.replace(R.id.container, fMain);
                 fTrans.commit();
                 return true;
             default:
@@ -163,7 +163,7 @@ public class MainActivity extends ActionBarActivity {
         Fragment fragment;
         switch (position) {
             case 0:
-                fragment = fList;
+                fragment = fAnimation;
                 break;
             case 1:
                 fragment = fLogin;
@@ -180,6 +180,5 @@ public class MainActivity extends ActionBarActivity {
         fTrans.commit();
         mDrawerLayout.closeDrawer(mDrawerList);
     }
-
 
 }
